@@ -9,5 +9,6 @@ import { SurveyController } from "./controllers/SurveyController";
 
         router.post("/users", userController.create);
         router.post("/surveys", surveyController.create);
+        router.get("/surveys", surveyController.index);
 
             export { router };
