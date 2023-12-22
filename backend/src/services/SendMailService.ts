@@ -1,3 +1,5 @@
+import fs from "fs";
+import handlebars from "handlebars";
 import nodemailer, { Transporter } from "nodemailer";
 
     class SendMailService {
@@ -19,12 +21,15 @@ import nodemailer, { Transporter } from "nodemailer";
                 });
             };
 
-                async execute(to: string, subject: string, body: string) {
+                async execute(to: string, subject: string, variables: object, path: string) {
+                    const templateFileContent = fs.readFileSync(path).toString("utf8");
+                    const mailTemplateParse = handlebars.compile(templateFileContent);
+                    const html = mailTemplateParse(variables);
                     const message = await this.client.sendMail({
-                        from: "NetPromoterScore <noreply@nps.com.br>",
+                        from: "netpromoterscore <noreply@nps.com.br>",
                         to,
                         subject,
-                        html: body
+                        html
                     });
 
                         console.log("Message sent: %s", message.messageId);
