@@ -5,9 +5,7 @@ import { Connection, createConnection, getConnectionOptions } from "typeorm";
 
             return createConnection(
                 Object.assign(defaultOptions, {
-                    database: process.env.NODE_ENV === "test"
-                        ? "./src/database/test.sqlite"
-                        : defaultOptions.database
+                    database: process.env.NODE_ENV === "test" ? "./src/database/database.test.sqlite" : defaultOptions.database
                 })
             );
     };
