@@ -21,7 +21,7 @@ import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
 
                 if(!surveyAlreadyExists) { return response.status(400).json({ error: "Survey doesn't exists!" }); };
 
-            const surveyUserAlreadyExists = await surveysUsersRepository.findOne({ where: [ { user_id: userAlreadyExists.id }, { value: null } ] });
+            const surveyUserAlreadyExists = await surveysUsersRepository.findOne({ where: [ { user_id: userAlreadyExists.id }, { value: null } ], relations: [ "user", "survey" ] });
             const npsPath = resolve(__dirname, "..", "views", "emails", "netpromoterscoreMail.hbs");
             const variables = { name: userAlreadyExists.name, title: surveyAlreadyExists.title, description: surveyAlreadyExists.description, user_id: userAlreadyExists.id, link: process.env.URL_MAIL };
 
