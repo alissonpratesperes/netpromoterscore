@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 
+import SendMailService from "../services/SendMailService";
 import { UsersRepository } from "../repositories/UsersRepository";
 import { SurveysRepository } from "../repositories/SurveysRepository";
 import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
@@ -22,6 +23,7 @@ import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
             const surveyUser = surveysUsersRepository.create({ user_id: userAlreadyExists.id, survey_id });
 
                     await surveysUsersRepository.save(surveyUser);
+                    await SendMailService.execute(email, surveyAlreadyExists.title, surveyAlreadyExists.description);
 
                         return response.status(201).json(surveyUser);
         };
