@@ -2,6 +2,7 @@ import { resolve } from "path";
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 
+import { AppError } from "../errors/AppError";
 import SendMailService from "../services/SendMailService";
 import { UsersRepository } from "../repositories/UsersRepository";
 import { SurveysRepository } from "../repositories/SurveysRepository";
@@ -15,11 +16,11 @@ import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
             const surveysUsersRepository = getCustomRepository(SurveysUsersRepository);
             const userAlreadyExists = await usersRepository.findOne({ email });
 
-                if(!userAlreadyExists) { return response.status(400).json({ error: "User doesn't exists!" }); };
+                if(!userAlreadyExists) { throw new AppError("User doesn't exists!"); };
 
             const surveyAlreadyExists = await surveysRepository.findOne({ id: survey_id });
 
-                if(!surveyAlreadyExists) { return response.status(400).json({ error: "Survey doesn't exists!" }); };
+                if(!surveyAlreadyExists) { throw new AppError("Survey doesn't exists!"); };
 
             const surveyUserAlreadyExists = await surveysUsersRepository.findOne({ where: { user_id: userAlreadyExists.id, value: null }, relations: [ "user", "survey" ] });
             const npsPath = resolve(__dirname, "..", "views", "emails", "netpromoterscoreMail.hbs");
