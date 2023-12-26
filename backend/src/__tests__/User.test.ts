@@ -1,23 +1,30 @@
 import request from "supertest";
+import { Connection } from "typeorm";
 
 import { app } from "../app";
 import createConnection from "../database";
 
     describe("Users", () => {
-        beforeAll(async () => {
-            const connection = await createConnection();
-    
-                await connection.runMigrations();
-        });
+        let connection: Connection;
 
-            it("Should be able to create a new User", async () => {
-                const response = await request(app).post("/users").send({ name: "User Example", email: "user.example@mail.com" });
+            beforeAll(async () => {
+                connection = await createConnection();
 
-                    expect(response.status).toBe(201);
+                    await connection.runMigrations();
             });
-            it("Shouldn't be able to create a new User with existing email on the database", async () => {
-                const response = await request(app).post("/users").send({ name: "User Example", email: "user.example@mail.com" });
-
-                    expect(response.status).toBe(400);
+            afterAll(async () => {
+                await connection.dropDatabase();
+                await connection.close();
             });
+
+                it("Should be able to create a new User", async () => {
+                    const response = await request(app).post("/users").send({ name: "User Example", email: "user.example@mail.com" });
+
+                        expect(response.status).toBe(201);
+                });
+                it("Shouldn't be able to create a new User with existing email on the database", async () => {
+                    const response = await request(app).post("/users").send({ name: "User Example", email: "user.example@mail.com" });
+
+                        expect(response.status).toBe(400);
+                });
     });
