@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "5853a914-3c74-4953-a3ec-f5774a12de4e",
+		"name": "netpromoterscore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29698091"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Userzinho\",\r\n    \"email\": \"userzinho@mailer.net\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Surveys",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Queremos ouvir sua opinião!\",\r\n    \"description\": \"De 0 a 10, quanto você recomendaria a Rocketseat?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/surveys",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"surveys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/surveys",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"surveys"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SurveysUsers",
+			"item": [
+				{
+					"name": "Send Mail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user.example@mail.com\",\r\n    \"survey_id\": \"f6264e23-6d56-4726-972e-a575e92f839e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/sendMail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"sendMail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/nps/f6264e23-6d56-4726-972e-a575e92f839e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"nps",
+								"f6264e23-6d56-4726-972e-a575e92f839e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
