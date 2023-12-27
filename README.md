@@ -23,7 +23,7 @@ ___
     </br>
 
 ## :dart: Sobre
-A **NetPromoterScore** é uma aplicação que consiste em calcular o NPS através do cadastro de usuários, cadastro de pesquisas e envio de e-mail para as avaliações. Nela fazemos a pesquisa de satisfação através deste fluxo e com isso a computação do cálculo do NPS.
+A **NetPromoterScore** é uma aplicação que consiste, através do cadastro de usuários, cadastro de pesquisas e envio de e-mail para as avaliações, realizar uma pesquisa de satisfação e computação do cálculo do NPS.
 
 ## :battery: Tecnologias
 Essa Aplicação foi desenvolvida utilizando as seguintes tecnologias:
