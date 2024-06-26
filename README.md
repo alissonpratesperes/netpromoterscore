@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./github/netpromoterscore-logo.svg" alt="netpromoterscore-logo" width="30%"/>
+  <img src="./github/netpromoterscore-logo.svg" alt="netpromoterscore-logo" width="10%"/>
 </p>
 
 ___
