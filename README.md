@@ -22,13 +22,15 @@ A **netpromoterscore** é uma Aplicação que consiste na realização de pesqui
 
 ## TECNOLOGIA
 
-TOOLING | <a href="https://web.postman.co/">Postman</a> • <a href="https://nodemailer.com/">NodeMailer</a> • <a href="https://handlebarsjs.com/">Handlebars</a>
+TOOLING | <a href="https://web.postman.co/">Postman</a>
 
 DATABASE | <a href="https://sqlite.org/">SQLite 3</a> • <a href="https://typeorm.io/">TypeORM</a>
 
 INTEGRATION | <a href="https://expressjs.com/">Express</a>
 
 BACK-END | <a href="https://nodejs.org/">NodeJS</a> • <a href="https://www.typescriptlang.org/">TypeScript</a>
+
+SERVICES | <a href="https://nodemailer.com/">NodeMailer</a> • <a href="https://handlebarsjs.com/">Handlebars</a> • <a href="https://ethereal.email/">Ethereal</a>
 
 TESTS | <a href="https://jestjs.io/">Jest</a>
 
